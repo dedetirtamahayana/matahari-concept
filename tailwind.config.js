@@ -17,11 +17,23 @@ module.exports = withMT({
         "default-background": "url(../../public/bg1.png);",
       },
       colors: {
-        primaryBtn: "#1572A1",
-        secondaryBtn: "#8FBDD3",
+        primaryBtn: "#316782",
+        secondaryBtn: "#1572A1",
+        navbarcolor: "#092E49",
       },
+
       height: {
         128: "32rem",
+      },
+      container: {
+        center: true,
+        padding: "1rem",
+        screens: {
+          sm: "100%",
+          md: "100%",
+          lg: "1024px", // Sesuaikan dengan lebar yang diinginkan
+          xl: "1024px",
+        },
       },
     },
   },
