@@ -5,7 +5,7 @@ import { Populer } from "@/components/Populer/Populer";
 import Mitra from "@/components/Mitra/Mitra";
 import Lowongan from "@/containers/Lowongan/Lowongan";
 import Layanan from "@/components/Layanan/Layanan";
-import Freelance from "@/components/Freelance/Freelance";
+import Freelance from "@/containers/Freelance/Freelance";
 import Faq from "@/components/FAQ/Faq";
 import Unggulan from "@/components/Unggulan/Unggulan";
 import Footer from "@/components/Footer/Footer";

@@ -22,6 +22,7 @@ const Lowongan = () => {
       const response = await axios.get(
         "http://103.27.206.237:10102/api/guest/lowongan/all"
       );
+      console.log(response.data);
       setData(response.data);
     } catch (error) {
       console.log("error", error);
@@ -51,8 +52,11 @@ const Lowongan = () => {
               {dataLowowngan
                 .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                 .slice(0, 6)
-                .map((item) => (
-                  <div className='rounded-lg bg-white p-6 shadow-xl'>
+                .map((item, key) => (
+                  <div
+                    className='rounded-lg bg-white p-6 shadow-xl'
+                    key={item.id}
+                  >
                     <div className='content-lowongan grid gap-3 auto-cols-max grid-flow-col'>
                       <div className=''>
                         <img src='/panasonic.png' alt='' />
