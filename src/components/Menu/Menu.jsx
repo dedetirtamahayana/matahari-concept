@@ -14,14 +14,12 @@ import {
   Avatar,
   Typography,
 } from "@material-tailwind/react";
-import { FaMagnifyingGlass } from "react-icons/fa6";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import auth from "@/utils/auth";
 import swal from "sweetalert";
-import PostLowongan from "@/containers/PostLowongan/PostLowongan";
 
-export function StickyNavbar() {
+export function MainMenu() {
   const [isSticky, setIsSticky] = useState(false);
   const router = useRouter();
   const { user } = useSelector((state) => state.login);
@@ -49,9 +47,9 @@ export function StickyNavbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const [openNav, setOpenNav] = useState(false);
+  const [openNav, setOpenNav] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -78,7 +76,7 @@ export function StickyNavbar() {
         className='p-1 font-norm transition-all duration-300 text-black md:text-white'
       >
         <a
-          href='/view-lowongan'
+          href='#'
           className='relative after:bg-white after:absolute after:h-[0.1em] after:w-full after:bottom-0 after:left-0 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 cursor-pointer mb-1'
         >
           Lowongan
@@ -213,15 +211,11 @@ export function StickyNavbar() {
 
   return (
     <div className='max-h-auto w-full'>
-      <Navbar
-        className={`sticky navbar top-0 z-10 h-max max-w-full rounded-none bg-col backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none px-4 py-2 lg:px-8 lg:py-2 ${
-          isSticky ? "bg-navbarcolor" : "bg-transparent"
-        }`}
-      >
+      <Navbar className='navbar top-0 z-10 h-max max-w-full rounded-none bg-col backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none px-4 py-2 lg:px-8 lg:py-2 bg-navbarcolor'>
         <div className='flex items-center justify-between text-blue-gray-900'>
           <Typography
             as='a'
-            href='/'
+            href='#'
             className='mr-4 cursor-pointer py-1.5 font-medium text-white'
           >
             Logo
@@ -367,61 +361,6 @@ export function StickyNavbar() {
           {navList}
         </Collapse>
       </Navbar>
-      <div className='mx-auto banner-section relative'>
-        <div className='container-banner mx-auto px-4 max-w-4xl'>
-          <div className='banner-content text-white'>
-            <h1 className='text-3xl  lg:w-3/5'>
-              Temukan Pekerjaan Favoritmu Dengan Mudah #AyoKerja
-            </h1>
-            <Typography className='w-auto lg:w-3/5 mb-6 lg:mb-12'>
-              Cari pekerjaan yang tepat untuk profesi kamu, mulai dari lowongan
-              kerja hingga beragam proyek. #KerjaUntukKejayaanBangsa
-            </Typography>
-            <form className=' w-full lg:grid lg:grid-cols-1  lg:w-3/4 lg:grid-flow-col lg:auto-cols-max px-4 md:px-5 py-2 bg-white rounded-md'>
-              <div className='my-3 lg:my-0'>
-                <Input
-                  variant='standard'
-                  label='Cari Lowongan'
-                  placeholder='Standard'
-                  className='border-none px-4 pt-2 md:col-span-2 '
-                  labelProps={{
-                    className: "px-4  after:border-none",
-                  }}
-                />
-              </div>
-              <div className='my-3 lg:my-0 mx-4 '>
-                <Select
-                  variant='standard'
-                  label='Pilih Lokasi'
-                  className='border-none  pt-2 '
-                  labelProps={{
-                    className: "after:border-none",
-                  }}
-                  animate={{
-                    mount: { y: 0 },
-                    unmount: { y: 25 },
-                  }}
-                >
-                  <Option value='html'>Material Tailwind HTML</Option>
-                  <Option value='react'>Material Tailwind React</Option>
-                  <Option value='vue'>Material Tailwind Vue</Option>
-                  <Option value='angular'>Material Tailwind Angular</Option>
-                  <Option value='svelte'>Material Tailwind Svelte</Option>
-                </Select>
-              </div>
-              <div className='block lg:flex items-center lg:justify-end'>
-                <Button
-                  size='lg'
-                  className='p-4 bg-primaryBtn flex items-center justify-center w-full'
-                >
-                  <FaMagnifyingGlass className='text-white text-base' />
-                </Button>
-              </div>
-            </form>
-            <span>Ingin mencari lowongan secara spesifik? Klik di sini!</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

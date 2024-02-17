@@ -15,7 +15,7 @@ function auth() {
   const getToken = () => {
     if (typeof window !== "undefined") {
       const dataUser = getAuth();
-      return dataUser.username;
+      return dataUser;
     }
   };
   const logout = () => {

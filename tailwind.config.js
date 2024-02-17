@@ -31,8 +31,8 @@ module.exports = withMT({
         screens: {
           sm: "100%",
           md: "100%",
-          lg: "1024px", // Sesuaikan dengan lebar yang diinginkan
-          xl: "1024px",
+          lg: "1140px", // Sesuaikan dengan lebar yang diinginkan
+          xl: "1140px",
         },
       },
     },

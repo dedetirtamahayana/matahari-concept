@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { FaBriefcase, FaRegClock, FaPeriscope } from "react-icons/fa6";
-import axios from "axios";
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
+  FaBriefcase,
+  FaRegClock,
+  FaPeriscope,
+  FaUserGroup,
+} from "react-icons/fa6";
+import axios from "axios";
+import { Typography, Button } from "@material-tailwind/react";
+import { useRouter } from "next/router";
 
 const Lowongan = () => {
+  const router = useRouter();
   const [dataLowowngan, setData] = useState([]);
   const formatIdr = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -22,10 +22,21 @@ const Lowongan = () => {
       const response = await axios.get(
         "http://103.27.206.237:10102/api/guest/lowongan/all"
       );
-      console.log(response.data);
+      console.log("data lowongan", response.data);
       setData(response.data);
     } catch (error) {
       console.log("error", error);
+    }
+  };
+  const fetchTimeDifference = (createdAt) => {
+    const diffInMs = new Date() - new Date(createdAt);
+    const diffInHours = diffInMs / (1000 * 60 * 60); // milliseconds to hours
+    if (diffInHours >= 24) {
+      const diffInDays = Math.floor(diffInHours / 24); // hours to days
+      const remainingHours = Math.round(diffInHours % 24); // remaining hours
+      return `${diffInDays} hari, ${remainingHours} jam`;
+    } else {
+      return `${Math.round(diffInHours)} jam`;
     }
   };
   useEffect(() => {
@@ -44,7 +55,12 @@ const Lowongan = () => {
               </Typography>
             </div>
             <div className='items-end flex mt-4 lg:mt-0'>
-              <Button className='bg-primaryBtn'>Lihat Semua Lowongan</Button>
+              <Button
+                className='bg-primaryBtn'
+                onClick={() => router.push("/view-lowongan")}
+              >
+                Lihat Semua Lowongan
+              </Button>
             </div>
           </div>
           <div className=' mt-6 lg:mt-12'>
@@ -85,12 +101,28 @@ const Lowongan = () => {
                         )}
                       </div>
                     </div>
+                    <div className='flex justify-end'>
+                      <Button
+                        className='bg-primaryBtn'
+                        onClick={() =>
+                          router.push({
+                            pathname: "/lowongan/[lowonganId]",
+                            query: { lowonganId: item.id },
+                          })
+                        }
+                      >
+                        Detail
+                      </Button>
+                    </div>
+
                     <div className='border-t grid grid-cols-2 mt-4 pt-4 text-gray-400'>
-                      <Typography className='justify-self-start'>
-                        3 jam yang lalu
+                      <Typography className='justify-self-start text-sm flex gap-3 items-center'>
+                        <FaRegClock />
+                        {fetchTimeDifference(item.created_at)} yang lalu
                       </Typography>
-                      <Typography className='justify-self-end'>
-                        3 lowongan
+                      <Typography className='justify-self-end text-sm flex gap-3 items-center'>
+                        <FaUserGroup />
+                        {item.jumlah_lowongan} orang
                       </Typography>
                     </div>
                   </div>
