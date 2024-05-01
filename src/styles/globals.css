@@ -2,55 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.register-form{
-  width: 488px;
-}
-@media (min-width: 1024px) {
-  .container-register {
-      max-width:1024px
-  }
-}
+@font-face {
+	font-family: 'Playfair Display';
+	src: url('/public//Playfair_Display//PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
 
-h1 {
-	font-weight: bold;
-	margin: 0;
 }
-
-
-p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-}
-
-span {
-	font-size: 12px;
-}
-
- .banner-section {
-	background-image: url('/banner-header.png');
-	background-size: cover;
-	padding: 160px 0 120px;
-    margin-top: 0;
-    background-position: 50%;
- }
- @media only screen and (max-width: 600px) {
-	.banner-section {
-	padding: 70px 0 70px;
-	}
- }
-.sticky {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 1000;
-}
-
-.navbar {
-  transition: background-color 0.2s ease-in-out;
-}
-.slick-slide > div{
-	margin: 0 10px;
+@font-face {
+	font-family: 'Open sans';
+	src: url('/public/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
 }

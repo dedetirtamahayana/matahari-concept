@@ -1,16 +1,9 @@
 import { StickyNavbar } from "@/components/Header";
-import Count from "@/components/Count/Count";
 import React, { useState, useEffect } from "react";
-import { Populer } from "@/components/Populer/Populer";
-import Mitra from "@/components/Mitra/Mitra";
-import Lowongan from "@/containers/Lowongan/Lowongan";
-import Layanan from "@/components/Layanan/Layanan";
-import Freelance from "@/containers/Freelance/Freelance";
-import Faq from "@/components/FAQ/Faq";
-import Unggulan from "@/components/Unggulan/Unggulan";
 import Footer from "@/components/Footer/Footer";
 import Loading from "@/components/Loading/Loading";
-
+import About from "@/components/About/About";
+import Product from "@/components/Product/Product";
 const index = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -25,14 +18,8 @@ const index = () => {
       ) : (
         <>
           <StickyNavbar />
-          <Count />
-          <Populer />
-          <Mitra />
-          <Lowongan />
-          <Layanan />
-          <Freelance />
-          <Unggulan />
-          <Faq />
+          <About />
+          <Product />
           <Footer />
         </>
       )}

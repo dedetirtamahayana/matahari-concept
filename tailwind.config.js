@@ -16,6 +16,11 @@ module.exports = withMT({
         "gradient-180": "linear-gradient(180deg, var(--tw-gradient-stops))",
         "default-background": "url(../../public/bg1.png);",
       },
+      fontFamily: {
+        playfair: ["Playfair Display", "serif"],
+        opensans: ["Open sans", "serif"],
+      },
+
       colors: {
         primaryBtn: "#316782",
         secondaryBtn: "#1572A1",
@@ -31,8 +36,8 @@ module.exports = withMT({
         screens: {
           sm: "100%",
           md: "100%",
-          lg: "1140px", // Sesuaikan dengan lebar yang diinginkan
-          xl: "1140px",
+          lg: "1232px", // Sesuaikan dengan lebar yang diinginkan
+          xl: "1232px",
         },
       },
     },
