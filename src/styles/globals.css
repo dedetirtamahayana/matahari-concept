@@ -11,3 +11,19 @@
 	font-family: 'Open sans';
 	src: url('/public/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
 }
+.sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000; /* Atur z-index agar navbar muncul di atas konten lain */
+  }
+ /* .section-achievement{
+	height: auto;
+    min-height: unset;
+    background-position: center center;
+    background-size: cover;
+    background-image: url('/acv-img.jpg');
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+ } */

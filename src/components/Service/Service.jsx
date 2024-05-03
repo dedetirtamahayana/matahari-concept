@@ -8,68 +8,59 @@ import { data } from "autoprefixer";
 import Link from "next/link";
 import React from "react";
 
-const Product = () => {
+const Service = () => {
   const data = [
     {
-      nama: "Adjustable Roofing System",
-      image: "/lovera.png",
+      nama: "WEATHERPROOF",
+      image: "/project.png",
       link: "/lovera",
     },
     {
-      nama: "Premium Doors & Windows",
-      image: "/giano.png",
+      nama: "BEST SERVICE",
+      image: "/project.png",
       link: "tautan_2",
     },
     {
-      nama: "Garage Door",
-      image: "/aldora.png",
+      nama: "AFFORDABLE",
+      image: "/project.png",
       link: "/lovera",
     },
     {
-      nama: "Security Screen Doors & Windows",
-      image: "/sequra.png",
+      nama: "FASTER",
+      image: "/project.png",
       link: "tautan_2",
     },
     {
-      nama: "Adjustable Roofing System",
-      image: "/lovera.png",
+      nama: "TERMITE PROOF",
+      image: "/project.png",
       link: "/lovera",
     },
     {
-      nama: "Premium Doors & Windows",
-      image: "/giano.png",
-      link: "tautan_2",
-    },
-    {
-      nama: "Garage Door",
-      image: "/aldora.png",
-      link: "/lovera",
-    },
-    {
-      nama: "Security Screen Doors & Windows",
-      image: "/sequra.png",
+      nama: "ECO- FRIENDLY",
+      image: "/project.png",
       link: "tautan_2",
     },
   ];
   return (
-    <div className='section  '>
+    <div className='section bg-blue-gray-100 '>
       <div className='container py-10 lg:py-24 px-0 w-[90%] md:w-[100%] mx-auto '>
         <div className='product'>
           <div className='heading text-center'>
-            <h2 className='text-5xl uppercase'>Product</h2>
+            <h2 className='text-5xl uppercase'>A few things we’re great at</h2>
             <Typography className='lg:w-[900px] mx-auto'>
-              The Product division involved in research and development to
-              improve existing products or create innovative solutions using
-              aluminum. Additionally, marketing and sales efforts would be
-              directed towards promoting these aluminum products to relevant
-              industries and consumers.
+              With a focus on sustainable practices and eco-friendly solutions,
+              our aluminum craftsmanship not only contributes to the beauty of
+              your spaces but also aligns with a greener, more conscious future.
+              From concept to creation, we pride ourselves on precision
+              engineering, ensuring that every detail is meticulously crafted to
+              exceed expectations.
             </Typography>
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-3 py-5'>
+            <div className='grid grid-cols-1 md:grid-cols-6 gap-3 py-5'>
               {data.map((item, i) => (
                 <Card key={i} className='border shadow-lg rounded-none'>
                   <CardBody className='p-0 flex justify-center items-center'>
                     <Link href={item.link}>
-                      <img src={item.image} alt='' />
+                      <img src={item.image} alt='' className='md:w-[278px]' />
                     </Link>
                   </CardBody>
                   <CardFooter>
@@ -87,4 +78,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Service;

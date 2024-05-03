@@ -4,6 +4,9 @@ import Footer from "@/components/Footer/Footer";
 import Loading from "@/components/Loading/Loading";
 import About from "@/components/About/About";
 import Product from "@/components/Product/Product";
+import Project from "@/components/Project/Project";
+import Achievement from "@/components/Achievement/Achievement";
+import Service from "@/components/Service/Service";
 const index = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -20,6 +23,9 @@ const index = () => {
           <StickyNavbar />
           <About />
           <Product />
+          <Project />
+          <Achievement />
+          <Service />
           <Footer />
         </>
       )}

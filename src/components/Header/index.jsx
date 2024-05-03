@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
   Collapse,
@@ -10,24 +10,40 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export function StickyNavbar() {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false)
-    );
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
+  const handleResize = () => {
+    if (window.innerWidth >= 960) {
+      setOpenNav(false);
+    }
+  };
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 0) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  };
   const navList = (
     <ul className='m-3 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6'>
       <Typography
         as='li'
         variant='small'
-        className='p-1 font-normal text-black lg:text-white divide-x-4'
+        className='p-1 font-normal text-black lg:text-white'
       >
         <a href='#' className='flex items-center'>
-          Pages
+          OUR STORY
         </a>
       </Typography>
       <Typography
@@ -36,25 +52,7 @@ export function StickyNavbar() {
         className='p-1 font-normal text-black lg:text-white'
       >
         <a href='#' className='flex items-center'>
-          Account
-        </a>
-      </Typography>
-      <Typography
-        as='li'
-        variant='small'
-        className='p-1 font-normal text-black lg:text-white'
-      >
-        <a href='#' className='flex items-center'>
-          Blocks
-        </a>
-      </Typography>
-      <Typography
-        as='li'
-        variant='small'
-        className='p-1 font-normal text-black lg:text-white'
-      >
-        <a href='#' className='flex items-center'>
-          Docs
+          CONTACT US
         </a>
       </Typography>
     </ul>
@@ -62,8 +60,14 @@ export function StickyNavbar() {
 
   return (
     <div className='max-h-auto w-full relative'>
-      <div className='absolute w-full z-50'>
-        <Navbar className='navbar top-0 h-auto max-w-full rounded-none bg-transparent backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-8 lg:py-2'>
+      <div
+        className={`absolute w-full z-50 ${isSticky ? "bg-navbarcolor" : ""}`}
+      >
+        <Navbar
+          className={`navbar top-0 h-auto max-w-full rounded-none bg-transparent backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-8 lg:py-2 ${
+            isSticky ? "sticky" : ""
+          } ${isSticky ? "bg-navbarcolor" : "bg-transparent"}`}
+        >
           <div className='flex items-center justify-between text-blue-gray-900'>
             <img
               src='/user.png'
