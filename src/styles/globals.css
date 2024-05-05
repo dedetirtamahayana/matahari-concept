@@ -11,6 +11,13 @@
 	font-family: 'Open sans';
 	src: url('/public/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
 }
+@font-face {
+	font-family: 'Muli';
+	src: url('/muli/Muli.ttf') format('truetype');
+}
+.custom-text{
+	font-family: 'Muli', sans-serif;
+}
 .sticky {
 	position: fixed;
 	top: 0;

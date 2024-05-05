@@ -42,7 +42,7 @@ const Service = () => {
     },
   ];
   return (
-    <div className='section bg-blue-gray-100 '>
+    <div className='section'>
       <div className='container py-10 lg:py-24 px-0 w-[90%] md:w-[100%] mx-auto '>
         <div className='product'>
           <div className='heading text-center'>

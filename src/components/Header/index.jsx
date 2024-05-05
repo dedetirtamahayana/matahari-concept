@@ -3,14 +3,292 @@ import {
   Navbar,
   Collapse,
   Typography,
-  Button,
   IconButton,
+  List,
+  ListItem,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Button,
 } from "@material-tailwind/react";
+import {
+  ChevronDownIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import {
+  Bars4Icon,
+  GlobeAmericasIcon,
+  NewspaperIcon,
+  PhoneIcon,
+  RectangleGroupIcon,
+  SquaresPlusIcon,
+  SunIcon,
+  TagIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/solid";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Link from "next/link";
+const navListMenuItems = [
+  {
+    title: "Products",
+    description: "Find the perfect solution for your needs.",
+    icon: SquaresPlusIcon,
+  },
+  {
+    title: "About Us",
+    description: "Meet and learn about our dedication",
+    icon: UserGroupIcon,
+  },
+  {
+    title: "Blog",
+    description: "Find the perfect solution for your needs.",
+    icon: Bars4Icon,
+  },
+  {
+    title: "Services",
+    description: "Learn how we can help you achieve your goals.",
+    icon: SunIcon,
+  },
+  {
+    title: "Support",
+    description: "Reach out to us for assistance or inquiries",
+    icon: GlobeAmericasIcon,
+  },
+  {
+    title: "Contact",
+    description: "Find the perfect solution for your needs.",
+    icon: PhoneIcon,
+  },
+  {
+    title: "News",
+    description: "Read insightful articles, tips, and expert opinions.",
+    icon: NewspaperIcon,
+  },
+  {
+    title: "Products",
+    description: "Find the perfect solution for your needs.",
+    icon: RectangleGroupIcon,
+  },
+  {
+    title: "Special Offers",
+    description: "Explore limited-time deals and bundles",
+    icon: TagIcon,
+  },
+];
+
+const projectListMenuItems = [
+  {
+    title: "Project 1",
+    description: "Description of Project 1",
+    icon: TagIcon,
+  },
+  {
+    title: "Project 2",
+    description: "Description of Project 2",
+    icon: RectangleGroupIcon,
+  },
+];
+
+function NavListMenu() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const renderItems = (items) => {
+    return items.map(({ icon, title, description }, key) => (
+      <a href='#' key={key}>
+        <MenuItem className='flex items-center gap-3 rounded-lg'>
+          <div className='flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 '>
+            {React.createElement(icon, {
+              strokeWidth: 2,
+              className: "h-6 text-gray-900 w-6",
+            })}
+          </div>
+          <div>
+            <Typography
+              variant='h6'
+              color='blue-gray'
+              className='flex items-center text-sm font-bold'
+            >
+              {title}
+            </Typography>
+            <Typography
+              variant='paragraph'
+              className='text-xs !font-medium text-blue-gray-500'
+            >
+              {description}
+            </Typography>
+          </div>
+        </MenuItem>
+      </a>
+    ));
+  };
+
+  return (
+    <React.Fragment>
+      <Menu
+        open={isMenuOpen}
+        handler={setIsMenuOpen}
+        offset={{ mainAxis: 20 }}
+        placement='bottom'
+        allowHover={true}
+      >
+        <MenuHandler>
+          <Typography as='div' variant='small' className='font-medium'>
+            <ListItem
+              className='flex items-center gap-2 py-2 pr-4 font-medium text-black lg:text-black'
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            >
+              <Link href='/product' className='flex items-center gap-2'>
+                Product
+                <ChevronDownIcon
+                  strokeWidth={2.5}
+                  className={`hidden h-3 w-3 transition-transform lg:block ${
+                    isMenuOpen ? "rotate-180" : ""
+                  }`}
+                />
+                <ChevronDownIcon
+                  strokeWidth={2.5}
+                  className={`block h-3 w-3 transition-transform lg:hidden ${
+                    isMobileMenuOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </Link>
+            </ListItem>
+          </Typography>
+        </MenuHandler>
+        <MenuList className='hidden max-w-screen-xl rounded-xl lg:block'>
+          <ul className='grid grid-cols-3 gap-y-2 outline-none outline-0'>
+            {renderItems(navListMenuItems)}
+          </ul>
+        </MenuList>
+      </Menu>
+      <div className='block lg:hidden'>
+        <Collapse open={isMobileMenuOpen}>
+          {renderItems(navListMenuItems)}
+        </Collapse>
+      </div>
+    </React.Fragment>
+  );
+}
+
+function ProjectListMenu() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const renderItems = (items) => {
+    return items.map(({ icon, title, description }, key) => (
+      <a href='#' key={key}>
+        <MenuItem className='flex items-center gap-3 rounded-lg'>
+          <div className='flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 '>
+            {React.createElement(icon, {
+              strokeWidth: 2,
+              className: "h-6 text-gray-900 w-6",
+            })}
+          </div>
+          <div>
+            <Typography
+              variant='h6'
+              color='blue-gray'
+              className='flex items-center text-sm font-bold'
+            >
+              {title}
+            </Typography>
+            <Typography
+              variant='paragraph'
+              className='text-xs !font-medium text-blue-gray-500'
+            >
+              {description}
+            </Typography>
+          </div>
+        </MenuItem>
+      </a>
+    ));
+  };
+
+  return (
+    <React.Fragment>
+      <Menu
+        open={isMenuOpen}
+        handler={setIsMenuOpen}
+        offset={{ mainAxis: 20 }}
+        placement='bottom'
+        allowHover={true}
+      >
+        <MenuHandler>
+          <Typography as='div' variant='small' className='font-medium'>
+            <ListItem
+              className='flex items-center gap-2 py-2 pr-4 font-medium text-black lg:text-black'
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            >
+              <Link href='/project' className='flex items-center gap-2'>
+                Project
+                <ChevronDownIcon
+                  strokeWidth={2.5}
+                  className={`hidden h-3 w-3 transition-transform lg:block ${
+                    isMenuOpen ? "rotate-180" : ""
+                  }`}
+                />
+                <ChevronDownIcon
+                  strokeWidth={2.5}
+                  className={`block h-3 w-3 transition-transform lg:hidden ${
+                    isMobileMenuOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </Link>
+            </ListItem>
+          </Typography>
+        </MenuHandler>
+        <MenuList className='hidden max-w-screen-xl rounded-xl lg:block'>
+          <ul className='grid grid-cols-3 gap-y-2 outline-none outline-0'>
+            {renderItems(projectListMenuItems)}
+          </ul>
+        </MenuList>
+      </Menu>
+      <div className='block lg:hidden'>
+        <Collapse open={isMobileMenuOpen}>
+          {renderItems(projectListMenuItems)}
+        </Collapse>
+      </div>
+    </React.Fragment>
+  );
+}
+
+function NavList() {
+  return (
+    <List className='mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1'>
+      <NavListMenu />
+      <ProjectListMenu />
+      <Typography
+        as='a'
+        href='/our-story'
+        variant='small'
+        className='font-medium text-black lg:text-black'
+      >
+        <ListItem className='flex items-center gap-2 py-2 pr-4'>
+          Our Story
+        </ListItem>
+      </Typography>
+      <Typography
+        as='a'
+        href='/contact-us'
+        variant='small'
+        className='font-medium text-black lg:text-black'
+      >
+        <ListItem className='flex items-center gap-2 py-2 pr-4'>
+          Contact Us
+        </ListItem>
+      </Typography>
+    </List>
+  );
+}
 
 export function StickyNavbar() {
-  const [openNav, setOpenNav] = useState(false);
+  const [openNav, setOpenNav] = React.useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -35,90 +313,35 @@ export function StickyNavbar() {
       setIsSticky(false);
     }
   };
-  const navList = (
-    <ul className='m-3 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6'>
-      <Typography
-        as='li'
-        variant='small'
-        className='p-1 font-normal text-black lg:text-white'
-      >
-        <a href='#' className='flex items-center'>
-          OUR STORY
-        </a>
-      </Typography>
-      <Typography
-        as='li'
-        variant='small'
-        className='p-1 font-normal text-black lg:text-white'
-      >
-        <a href='#' className='flex items-center'>
-          CONTACT US
-        </a>
-      </Typography>
-    </ul>
-  );
 
   return (
-    <div className='max-h-auto w-full relative'>
-      <div
-        className={`absolute w-full z-50 ${isSticky ? "bg-navbarcolor" : ""}`}
-      >
+    <>
+      <div className={`absolute w-full z-50 ${isSticky ? "bg-white" : ""}`}>
         <Navbar
-          className={`navbar top-0 h-auto max-w-full rounded-none bg-transparent backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-8 lg:py-2 ${
+          className={`navbar top-0 h-auto max-w-full rounded-none bg-white   backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-8 lg:py-2 ${
             isSticky ? "sticky" : ""
-          } ${isSticky ? "bg-navbarcolor" : "bg-transparent"}`}
+          } ${isSticky ? "bg-white" : "bg-transparent"}`}
         >
           <div className='flex items-center justify-between text-blue-gray-900'>
-            <img
-              src='/user.png'
-              alt=''
-              className='w-14'
-              onClick={() => router.push("/")}
-            />
-            <div className='flex items-center gap-4'>
-              <div className='mr-4 hidden lg:block'>{navList}</div>
-
-              <IconButton
-                variant='text'
-                className='ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden'
-                ripple={false}
-                onClick={() => setOpenNav(!openNav)}
-              >
-                {openNav ? (
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    className='h-6 w-6'
-                    viewBox='0 0 24 24'
-                    stroke='currentColor'
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      d='M6 18L18 6M6 6l12 12'
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-6 w-6'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      d='M4 6h16M4 12h16M4 18h16'
-                    />
-                  </svg>
-                )}
-              </IconButton>
+            <img src='/logo.png' className='w-24 h-auto' alt='' />
+            <div className='hidden lg:block'>
+              <NavList />
             </div>
+            <IconButton
+              variant='text'
+              color='blue-gray'
+              className='lg:hidden'
+              onClick={() => setOpenNav(!openNav)}
+            >
+              {openNav ? (
+                <XMarkIcon className='h-6 w-6 text-white' strokeWidth={2} />
+              ) : (
+                <Bars3Icon className='h-6 w-6 text-white' strokeWidth={2} />
+              )}
+            </IconButton>
           </div>
           <Collapse open={openNav} className='bg-white'>
-            {navList}
+            <NavList />
           </Collapse>
         </Navbar>
       </div>
@@ -169,14 +392,14 @@ export function StickyNavbar() {
         <div className='absolute inset-0 flex flex-col justify-center items-center text-center mt-10 lg:mt-0 gap-3 '>
           <Typography
             variant='h1'
-            className=' text-xl md:text-4xl lg:text-3xl text-white'
+            className=' text-xl md:text-4xl lg:text-3xl text-white custom-text'
           >
             Welcome To Matahari Concept
           </Typography>
           <Typography
             variant='lead'
             color='white'
-            className='text-sm lg:text-lg text-white w-[80%] lg:w-[900px]'
+            className='text-sm lg:text-lg text-white w-[80%] lg:w-[900px] custom-text'
           >
             where artistry meets precision in the world of aluminum
             craftsmanship. As pioneers in the industry, we embark on a journey
@@ -185,8 +408,12 @@ export function StickyNavbar() {
             project is a unique canvas, waiting to be adorned with the perfect
             blend of functionality and aesthetic brilliance
           </Typography>
+          <div className='flex gap-4'>
+            <Button className='bg-primaryBtn custom-text '>Product</Button>
+            <Button className='bg-primaryBtn'>Project</Button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -18,13 +18,14 @@ module.exports = withMT({
       },
       fontFamily: {
         playfair: ["Playfair Display", "serif"],
-        opensans: ["Open sans", "serif"],
+        opensans: ["Open sans", "sans-serif"],
       },
 
       colors: {
-        primaryBtn: "#316782",
+        primaryBtn: "#000768",
         secondaryBtn: "#1572A1",
         navbarcolor: "#092E49",
+        titlecolor: "#F5FAFD",
       },
 
       height: {
