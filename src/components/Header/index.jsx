@@ -408,20 +408,25 @@ export function StickyNavbar() {
             blend of functionality and aesthetic brilliance
           </Typography>
           <div className='flex gap-4 my-5'>
-            <Button
-              className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white'
-              variant='text'
-              size='lg'
-            >
-              Product
-            </Button>
-            <Button
-              className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white'
-              variant='text'
-              size='lg'
-            >
-              Project
-            </Button>
+            <a href='#product'>
+              <Button
+                className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white'
+                variant='text'
+                size='lg'
+              >
+                Product
+              </Button>
+            </a>
+            <a href='#project'>
+              <Button
+                className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white'
+                variant='text'
+                size='lg'
+                href='#project'
+              >
+                Project
+              </Button>
+            </a>
           </div>
         </div>
       </div>
