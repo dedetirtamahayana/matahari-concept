@@ -43,7 +43,7 @@ const Product = () => {
     {
       nama: "Garage Door",
       image: "/aldora.png",
-      link: "/lovera",
+      link: "product/lovera",
     },
     {
       nama: "Security Screen Doors & Windows",
@@ -52,12 +52,12 @@ const Product = () => {
     },
   ];
   return (
-    <div className='section  '>
+    <div className='section' id='product'>
       <div className='container py-10 lg:py-24 px-0 w-[90%] md:w-[100%] mx-auto '>
         <div className='product'>
           <div className='heading text-center'>
-            <h2 className='text-5xl uppercase'>Product</h2>
-            <Typography className='lg:w-[900px] mx-auto'>
+            <h2 className='text-5xl uppercase custom-text'>Product </h2>
+            <Typography className='lg:w-[900px] mx-auto custom-text'>
               The Product division involved in research and development to
               improve existing products or create innovative solutions using
               aluminum. Additionally, marketing and sales efforts would be

@@ -31,31 +31,31 @@ import {
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Link from "next/link";
+
 const navListMenuItems = [
   {
-    title: "Products",
-    description: "Find the perfect solution for your needs.",
-    icon: SquaresPlusIcon,
-  },
-  {
-    title: "About Us",
-    description: "Meet and learn about our dedication",
+    title: "Lovera",
+    description: "Adjustable Roofing System",
     icon: UserGroupIcon,
+    link: "product/lovera",
   },
   {
-    title: "Blog",
-    description: "Find the perfect solution for your needs.",
+    title: "Giano",
+    description: "Premium Doors & Windows",
     icon: Bars4Icon,
+    link: "product/giano",
   },
   {
-    title: "Services",
-    description: "Learn how we can help you achieve your goals.",
+    title: "Aldora",
+    description: "Garage Door",
     icon: SunIcon,
+    link: "product/aldora",
   },
   {
-    title: "Support",
-    description: "Reach out to us for assistance or inquiries",
+    title: "Sequra",
+    description: "Security Screen Doors & Windows",
     icon: GlobeAmericasIcon,
+    link: "product/sequra",
   },
   {
     title: "Contact",
@@ -92,13 +92,13 @@ const projectListMenuItems = [
   },
 ];
 
-function NavListMenu() {
+function NavListMenu({ isSticky }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const renderItems = (items) => {
-    return items.map(({ icon, title, description }, key) => (
-      <a href='#' key={key}>
+    return items.map(({ icon, title, description, link }, key) => (
+      <a href={link} key={key}>
         <MenuItem className='flex items-center gap-3 rounded-lg'>
           <div className='flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 '>
             {React.createElement(icon, {
@@ -137,27 +137,26 @@ function NavListMenu() {
       >
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
-            <ListItem
-              className='flex items-center gap-2 py-2 pr-4 font-medium text-black lg:text-black'
-              selected={isMenuOpen || isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            <a
+              href='#product'
+              className={`flex items-center gap-2 py-2 px-4 font-medium ${
+                isSticky ? "text-black" : "text-white"
+              }`}
             >
-              <Link href='/product' className='flex items-center gap-2'>
-                Product
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`hidden h-3 w-3 transition-transform lg:block ${
-                    isMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`block h-3 w-3 transition-transform lg:hidden ${
-                    isMobileMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </Link>
-            </ListItem>
+              Product
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${
+                  isMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform lg:hidden ${
+                  isMobileMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+            </a>
           </Typography>
         </MenuHandler>
         <MenuList className='hidden max-w-screen-xl rounded-xl lg:block'>
@@ -175,7 +174,7 @@ function NavListMenu() {
   );
 }
 
-function ProjectListMenu() {
+function ProjectListMenu({ isSticky }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -220,27 +219,26 @@ function ProjectListMenu() {
       >
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
-            <ListItem
-              className='flex items-center gap-2 py-2 pr-4 font-medium text-black lg:text-black'
-              selected={isMenuOpen || isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            <a
+              href='#project'
+              className={`flex items-center gap-2 py-2 px-4 font-medium ${
+                isSticky ? "text-black" : "text-white"
+              }`}
             >
-              <Link href='/project' className='flex items-center gap-2'>
-                Project
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`hidden h-3 w-3 transition-transform lg:block ${
-                    isMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`block h-3 w-3 transition-transform lg:hidden ${
-                    isMobileMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </Link>
-            </ListItem>
+              Project
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${
+                  isMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform lg:hidden ${
+                  isMobileMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+            </a>
           </Typography>
         </MenuHandler>
         <MenuList className='hidden max-w-screen-xl rounded-xl lg:block'>
@@ -258,18 +256,19 @@ function ProjectListMenu() {
   );
 }
 
-function NavList() {
+function NavList({ isSticky }) {
   return (
     <List className='mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1'>
-      <NavListMenu />
-      <ProjectListMenu />
+      <NavListMenu isSticky={isSticky} />
+      <ProjectListMenu isSticky={isSticky} />
+
       <Typography
         as='a'
         href='/our-story'
         variant='small'
-        className='font-medium text-black lg:text-black'
+        className={`font-medium ${isSticky ? "text-black" : "text-white"}`}
       >
-        <ListItem className='flex items-center gap-2 py-2 pr-4'>
+        <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
           Our Story
         </ListItem>
       </Typography>
@@ -277,9 +276,9 @@ function NavList() {
         as='a'
         href='/contact-us'
         variant='small'
-        className='font-medium text-black lg:text-black'
+        className={`font-medium ${isSticky ? "text-black" : "text-white"}`}
       >
-        <ListItem className='flex items-center gap-2 py-2 pr-4'>
+        <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
           Contact Us
         </ListItem>
       </Typography>
@@ -318,30 +317,30 @@ export function StickyNavbar() {
     <>
       <div className={`absolute w-full z-50 ${isSticky ? "bg-white" : ""}`}>
         <Navbar
-          className={`navbar top-0 h-auto max-w-full rounded-none bg-white   backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-8 lg:py-2 ${
+          className={`navbar top-0 h-auto max-w-full rounded-none bg-white text-white backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-8 lg:py-2 ${
             isSticky ? "sticky" : ""
           } ${isSticky ? "bg-white" : "bg-transparent"}`}
         >
-          <div className='flex items-center justify-between text-blue-gray-900'>
-            <img src='/logo.png' className='w-24 h-auto' alt='' />
+          <div className='flex items-center justify-between text-blue-gray-900 lg:mr-28'>
+            <img src='/logo.png' className='w-24 h-auto lg:ml-28' alt='' />
             <div className='hidden lg:block'>
-              <NavList />
+              <NavList isSticky={isSticky} />
             </div>
             <IconButton
               variant='text'
-              color='blue-gray'
+              color={isSticky ? "black" : "white"}
               className='lg:hidden'
               onClick={() => setOpenNav(!openNav)}
             >
               {openNav ? (
-                <XMarkIcon className='h-6 w-6 text-white' strokeWidth={2} />
+                <XMarkIcon className='h-6 w-6' strokeWidth={2} />
               ) : (
-                <Bars3Icon className='h-6 w-6 text-white' strokeWidth={2} />
+                <Bars3Icon className='h-6 w-6' strokeWidth={2} />
               )}
             </IconButton>
           </div>
           <Collapse open={openNav} className='bg-white'>
-            <NavList />
+            <NavList isSticky={isSticky} />
           </Collapse>
         </Navbar>
       </div>
@@ -389,7 +388,7 @@ export function StickyNavbar() {
             </div>
           </Carousel>
         </div>
-        <div className='absolute inset-0 flex flex-col justify-center items-center text-center mt-10 lg:mt-0 gap-3 '>
+        <div className='absolute inset-0 flex flex-col justify-center items-start ml-32 mt-10 lg:mt-0 gap-3 '>
           <Typography
             variant='h1'
             className=' text-xl md:text-4xl lg:text-3xl text-white custom-text'
@@ -408,9 +407,21 @@ export function StickyNavbar() {
             project is a unique canvas, waiting to be adorned with the perfect
             blend of functionality and aesthetic brilliance
           </Typography>
-          <div className='flex gap-4'>
-            <Button className='bg-primaryBtn custom-text '>Product</Button>
-            <Button className='bg-primaryBtn'>Project</Button>
+          <div className='flex gap-4 my-5'>
+            <Button
+              className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white'
+              variant='text'
+              size='lg'
+            >
+              Product
+            </Button>
+            <Button
+              className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white'
+              variant='text'
+              size='lg'
+            >
+              Project
+            </Button>
           </div>
         </div>
       </div>

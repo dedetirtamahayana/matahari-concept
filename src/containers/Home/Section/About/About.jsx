@@ -31,9 +31,8 @@ const About = () => {
                 <Typography className='text-black text-center md:text-left'>
                   Welcome to our world of exceptional aluminum craftsmanship,
                   where innovation meets precision to redefine your spaces. At
-                  Trimitra Karya Mandiri, we specialize in delivering bespoke
-                  aluminum works that seamlessly blend functionality with
-                  aesthetics.
+                  Matahari Concept, we specialize in delivering bespoke aluminum
+                  works that seamlessly blend functionality with aesthetics.
                 </Typography>
               </CardBody>
             </Card>

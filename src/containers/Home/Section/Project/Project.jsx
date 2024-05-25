@@ -52,12 +52,12 @@ const Project = () => {
     },
   ];
   return (
-    <div className='section bg-blue-gray-100 '>
+    <div className='section bg-blue-gray-100 ' id='project'>
       <div className='container py-10 lg:py-24 px-0 w-[90%] md:w-[100%] mx-auto '>
         <div className='product'>
           <div className='heading text-center'>
-            <h2 className='text-5xl uppercase'>Project</h2>
-            <Typography className='lg:w-[900px] mx-auto'>
+            <h2 className='text-5xl uppercase custom-text'>Project</h2>
+            <Typography className='lg:w-[900px] mx-auto custom-text'>
               The project division is a group of individuals within an
               organization assembled to plan, execute, and manage projects
               related to aluminum-based products or processes. These teams are

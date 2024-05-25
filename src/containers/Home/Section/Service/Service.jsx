@@ -46,8 +46,10 @@ const Service = () => {
       <div className='container py-10 lg:py-24 px-0 w-[90%] md:w-[100%] mx-auto '>
         <div className='product'>
           <div className='heading text-center'>
-            <h2 className='text-5xl uppercase'>A few things we’re great at</h2>
-            <Typography className='lg:w-[900px] mx-auto'>
+            <h2 className='text-5xl uppercase custom-text'>
+              A few things we’re great at
+            </h2>
+            <Typography className='lg:w-[900px] mx-auto custom-text'>
               With a focus on sustainable practices and eco-friendly solutions,
               our aluminum craftsmanship not only contributes to the beauty of
               your spaces but also aligns with a greener, more conscious future.

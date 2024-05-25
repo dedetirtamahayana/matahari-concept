@@ -21,10 +21,10 @@ const OurStory = () => {
               <h4 className='mb-5 text-xl'>Our Story</h4>
               <hr className='border-t-4 border-blue-400 w-[80px] mb-5'></hr>
               <Typography className='mb-4'>
-                On March 14, 1987, PT. Trimitra Karya Mandiri opened its doors
-                to the public for the first time. Specializing in the
-                application of aluminum doors and windows, our company had two
-                business objectives:
+                On March 14, 1987, PT. Matahari Concept opened its doors to the
+                public for the first time. Specializing in the application of
+                aluminum doors and windows, our company had two business
+                objectives:
               </Typography>
               <Typography className='mb-4'>
                 1. To be the best choice in aluminium and metal based products.
@@ -34,9 +34,9 @@ const OurStory = () => {
                 integrity.
               </Typography>
               <Typography>
-                Trimitra Karya Mandiri began receiving recognition in the 90s
-                when it introduced its own aluminium product line under the same
-                two principles. While the times have changed, believing and
+                Matahari Concept began receiving recognition in the 90s when it
+                introduced its own aluminium product line under the same two
+                principles. While the times have changed, believing and
                 practicing these philosophies have allowed our company to
                 operate stably and at the same time to continuously expand in
                 Indonesia. We have become a manufacturer and applicator of

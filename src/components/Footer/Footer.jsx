@@ -89,9 +89,8 @@ const Footer = () => {
               <hr className='border-t-4 border-black w-[80px]'></hr>
 
               <iframe
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.0829254820746!2d115.2339847519619!3d-8.68366422446635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2409b0e5e80db%3A0xad78f1ff66b638d2!2sSMK%20TI%20Bali%20Global%20Denpasar!5e0!3m2!1sid!2sid!4v1714563366378!5m2!1sid!2sid'
-                frameBorder='0'
-                style={{ border: 0, width: "400px", height: "300px" }}
+                src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15775.521766806896!2d115.1884464!3d-8.7029025!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24185583174ad%3A0xf9deef6ede272b4f!2sAtap%20Aluminium%20Lovera%20Bali%20%7C%20Matahari%20Concept!5e0!3m2!1sid!2sid!4v1714917703526!5m2!1sid!2sid'
+                style={{ border: 0, width: "350px", height: "300px" }}
                 allowFullScreen=''
                 aria-hidden='false'
                 tabIndex='0'
@@ -99,6 +98,13 @@ const Footer = () => {
               ></iframe>
             </div>
           </div>
+        </div>
+        <div className='fixed bottom-20 right-0 mt-4 mr-4 z-50'>
+          <Link href={"https://wa.me/6289685698718"}>
+            <button className='w-16 h-16 bg-green-400 text-white  rounded-full flex items-center justify-center'>
+              <FaWhatsapp className='w-9 h-9' />
+            </button>
+          </Link>
         </div>
         <hr className='my-8 border-blue-gray-50' />
         <Typography color='white' className='text-center font-normal pb-8'>
