@@ -23,7 +23,6 @@ import {
   NewspaperIcon,
   PhoneIcon,
   RectangleGroupIcon,
-  SquaresPlusIcon,
   SunIcon,
   TagIcon,
   UserGroupIcon,
@@ -138,8 +137,8 @@ function NavListMenu({ isSticky }) {
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
             <ListItem
-              className={`flex items-center gap-2 py-2 px-4 font-medium ${
-                isSticky ? "text-black" : "text-white"
+              className={`flex items-center gap-2 py-2 px-4 font-medium text-black ${
+                isSticky ? "lg:text-black" : "lg:text-white"
               }`}
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -222,8 +221,8 @@ function ProjectListMenu({ isSticky }) {
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
             <ListItem
-              className={`flex items-center gap-2 py-2 px-4 font-medium ${
-                isSticky ? "text-black" : "text-white"
+              className={`flex items-center gap-2 py-2 px-4 font-medium text-black ${
+                isSticky ? "lg:text-black" : "lg:text-white"
               }`}
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -271,7 +270,7 @@ function NavList({ isSticky }) {
         href='/our-story'
         variant='small'
         className={`font-medium text-black ${
-          isSticky ? "text-black" : "text-white"
+          isSticky ? "lg:text-black" : "lg:text-white"
         }`}
       >
         <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
@@ -283,7 +282,7 @@ function NavList({ isSticky }) {
         href='/contact-us'
         variant='small'
         className={`font-medium text-black ${
-          isSticky ? "text-black" : "text-white"
+          isSticky ? "lg:text-black" : "lg:text-white"
         }`}
       >
         <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
@@ -323,39 +322,39 @@ export function StickyNavbar() {
 
   return (
     <>
-      <div className={`absolute w-full z-50 ${isSticky ? "bg-white" : ""}`}>
-        <Navbar
-          className={`navbar top-0 h-auto max-w-full rounded-none bg-white text-white backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-8 lg:py-2 ${
-            isSticky ? "sticky" : ""
-          } ${isSticky ? "bg-white" : "bg-transparent"}`}
-        >
-          <div className='flex items-center justify-between text-blue-gray-900 lg:mr-28'>
-            <img src='/logo.png' className='w-24 h-auto lg:ml-28' alt='' />
-            <div className='hidden lg:block'>
-              <NavList isSticky={isSticky} />
-            </div>
-            <IconButton
-              variant='text'
-              color={isSticky ? "black" : "white"}
-              className='lg:hidden'
-              onClick={() => setOpenNav(!openNav)}
-            >
-              {openNav ? (
-                <XMarkIcon className='h-6 w-6' strokeWidth={2} />
-              ) : (
-                <Bars3Icon className='h-6 w-6' strokeWidth={2} />
-              )}
-            </IconButton>
+      <div className={`absolute w-full z-50  ${isSticky ? "bg-white" : ""}`}>
+        <div className={` ${isSticky ? "sticky bg-white" : "bg-transparent"}`}>
+          <div className='container px-0'>
+            <Navbar className=' top-0 h-auto w-full rounded-none text-white bg-transparent backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-0 lg:py-2 '>
+              <div className='flex items-center justify-between text-blue-gray-900 '>
+                <img src='/logo.png' className='w-24 h-auto ' alt='' />
+                <div className='hidden lg:block'>
+                  <NavList isSticky={isSticky} />
+                </div>
+                <IconButton
+                  variant='text'
+                  color={isSticky ? "black" : "white"}
+                  className='lg:hidden'
+                  onClick={() => setOpenNav(!openNav)}
+                >
+                  {openNav ? (
+                    <XMarkIcon className='h-6 w-6' strokeWidth={2} />
+                  ) : (
+                    <Bars3Icon className='h-6 w-6' strokeWidth={2} />
+                  )}
+                </IconButton>
+              </div>
+              <Collapse open={openNav} className='bg-white'>
+                <NavList isSticky={isSticky} />
+              </Collapse>
+            </Navbar>
           </div>
-          <Collapse open={openNav} className='bg-white'>
-            <NavList isSticky={isSticky} />
-          </Collapse>
-        </Navbar>
+        </div>
       </div>
       <div className='relative overflow-hidden'>
         <div className='relative'>
           <Carousel
-            className='overflow-hidden h-100% md:h-[700px]'
+            className='overflow-hidden md:h-[500px]'
             showStatus={false}
             infiniteLoop={true}
             showThumbs={false}
@@ -366,7 +365,7 @@ export function StickyNavbar() {
             transition={true}
             transitionTime={5000}
           >
-            <div className='relative h-[500px] lg:h-full w-full flex items-center justify-center'>
+            <div className='relative h-[500px]  w-full flex items-center justify-center'>
               <img
                 src='/disabilitas.jpg'
                 alt='image 1'
@@ -376,7 +375,7 @@ export function StickyNavbar() {
                 <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
               </div>
             </div>
-            <div className='relative h-full w-full flex items-center justify-center'>
+            <div className='relative h-[500px]  w-full flex items-center justify-center'>
               <img
                 src='/disabilitas.jpg'
                 alt='image 2'
@@ -386,13 +385,13 @@ export function StickyNavbar() {
                 <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
               </div>
             </div>
-            <div className='relative h-full w-full  flex items-center'>
+            <div className='relative h-[500px]  w-full flex items-center justify-center'>
               <img src='/job.png' alt='image 2' className='bg-cover' />
               <div className='absolute inset-0 grid h-full w-full items-center bg-black/50'>
                 <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
               </div>
             </div>
-            <div className='relative h-full w-full  flex items-center'>
+            <div className='relative h-[500px] lg:h-full w-full flex items-center justify-center'>
               <img src='/mikro.jpg' alt='image 2' className='bg-cover' />
               <div className='absolute inset-0 grid h-full w-full items-center bg-black/50'>
                 <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
@@ -400,7 +399,7 @@ export function StickyNavbar() {
             </div>
           </Carousel>
         </div>
-        <div className='absolute inset-0 flex flex-col justify-center items-start px-4 lg:ml-32 pt-12 lg:mt-0 gap-1 '>
+        <div className='absolute container lg:px-0 inset-0 flex flex-col justify-center items-start px-4 pt-12 lg:mt-0 gap-1 '>
           <Typography
             variant='h1'
             className=' text-xl md:text-4xl lg:text-3xl text-white custom-text'
