@@ -11,43 +11,19 @@ import React from "react";
 const Project = () => {
   const data = [
     {
-      nama: "Project X",
-      image: "/project.png",
+      image: "/kfc4x.png",
       link: "/lovera",
     },
     {
-      nama: "Project X",
-      image: "/project.png",
+      image: "/kasih_ibu4x.png",
       link: "tautan_2",
     },
     {
-      nama: "Project X",
-      image: "/project.png",
+      image: "/uno4x.png",
       link: "/lovera",
     },
     {
-      nama: "Project X",
-      image: "/project.png",
-      link: "tautan_2",
-    },
-    {
-      nama: "Project X",
-      image: "/project.png",
-      link: "/lovera",
-    },
-    {
-      nama: "Project X",
-      image: "/project.png",
-      link: "tautan_2",
-    },
-    {
-      nama: "Project X",
-      image: "/project.png",
-      link: "/lovera",
-    },
-    {
-      nama: "Project X",
-      image: "/project.png",
+      image: "/four_points4x.png",
       link: "tautan_2",
     },
   ];
@@ -57,7 +33,7 @@ const Project = () => {
         <div className='product'>
           <div className='heading text-center'>
             <h2 className='text-5xl uppercase custom-text'>Project</h2>
-            <Typography className='lg:w-[900px] mx-auto custom-text'>
+            <Typography className='lg:w-[900px] mx-auto custom-text my-3'>
               The project division is a group of individuals within an
               organization assembled to plan, execute, and manage projects
               related to aluminum-based products or processes. These teams are
@@ -67,17 +43,12 @@ const Project = () => {
             </Typography>
             <div className='grid grid-cols-1 md:grid-cols-4 gap-3 py-5'>
               {data.map((item, i) => (
-                <Card key={i} className='border shadow-lg rounded-none'>
-                  <CardBody className='p-0 flex justify-center items-center'>
+                <Card key={i} className='border shadow-lg rounded-lg'>
+                  <CardBody className='p-0 flex justify-center items-center '>
                     <Link href={item.link}>
-                      <img src={item.image} alt='' className='md:w-[278px]' />
+                      <img src={item.image} alt='' className='w-64 p-6' />
                     </Link>
                   </CardBody>
-                  <CardFooter>
-                    <Typography className='text-black font-semibold'>
-                      {item.nama}
-                    </Typography>
-                  </CardFooter>
                 </Card>
               ))}
             </div>

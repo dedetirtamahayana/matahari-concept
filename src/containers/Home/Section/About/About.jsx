@@ -18,17 +18,17 @@ const About = () => {
                 <Typography
                   variant='h5'
                   color='blue-gray'
-                  className='mb-2 text-black text-lg text-center md:text-left'
+                  className='mb-2 text-black text-lg text-center md:text-left custom-text'
                 >
                   About Matahari Concept
                 </Typography>
-                <h2 className='text-4xl text-center md:text-left md:text-5xl text-black font-opensans font-light mb-5 '>
+                <h2 className='text-4xl text-center md:text-left md:text-5xl text-black font-opensans font-light mb-5 custom-text '>
                   Enjoy the best{" "}
-                  <em className='font-playfair font-semibold'>design</em> and{" "}
-                  <em className='font-playfair font-semibold'>functions </em>{" "}
+                  <em className='custom-text font-semibold '>design</em> and{" "}
+                  <em className='custom-text font-semibold'>functions </em>{" "}
                   combined together
                 </h2>
-                <Typography className='text-black text-center md:text-left'>
+                <Typography className='text-black text-center md:text-left custom-text'>
                   Welcome to our world of exceptional aluminum craftsmanship,
                   where innovation meets precision to redefine your spaces. At
                   Matahari Concept, we specialize in delivering bespoke aluminum

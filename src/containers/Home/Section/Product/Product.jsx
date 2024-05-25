@@ -13,7 +13,7 @@ const Product = () => {
     {
       nama: "Adjustable Roofing System",
       image: "/lovera.png",
-      link: "/lovera",
+      link: "product/lovera",
     },
     {
       nama: "Premium Doors & Windows",
@@ -43,7 +43,7 @@ const Product = () => {
     {
       nama: "Garage Door",
       image: "/aldora.png",
-      link: "product/lovera",
+      link: "/lovera",
     },
     {
       nama: "Security Screen Doors & Windows",
@@ -57,7 +57,7 @@ const Product = () => {
         <div className='product'>
           <div className='heading text-center'>
             <h2 className='text-5xl uppercase custom-text'>Product </h2>
-            <Typography className='lg:w-[900px] mx-auto custom-text'>
+            <Typography className='lg:w-[900px] mx-auto custom-text my-3'>
               The Product division involved in research and development to
               improve existing products or create innovative solutions using
               aluminum. Additionally, marketing and sales efforts would be
@@ -66,14 +66,14 @@ const Product = () => {
             </Typography>
             <div className='grid grid-cols-1 md:grid-cols-4 gap-3 py-5'>
               {data.map((item, i) => (
-                <Card key={i} className='border shadow-lg rounded-none'>
+                <Card key={i} className='border shadow-lg rounded-lg'>
                   <CardBody className='p-0 flex justify-center items-center'>
                     <Link href={item.link}>
                       <img src={item.image} alt='' />
                     </Link>
                   </CardBody>
                   <CardFooter>
-                    <Typography className='text-black font-semibold'>
+                    <Typography className='text-black font-semibold custom-text'>
                       {item.nama}
                     </Typography>
                   </CardFooter>

@@ -137,13 +137,15 @@ function NavListMenu({ isSticky }) {
       >
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
-            <a
-              href='#product'
+            <ListItem
               className={`flex items-center gap-2 py-2 px-4 font-medium ${
                 isSticky ? "text-black" : "text-white"
               }`}
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Product
+              <a href='#product'>Product</a>
+
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -156,7 +158,7 @@ function NavListMenu({ isSticky }) {
                   isMobileMenuOpen ? "rotate-180" : ""
                 }`}
               />
-            </a>
+            </ListItem>
           </Typography>
         </MenuHandler>
         <MenuList className='hidden max-w-screen-xl rounded-xl lg:block'>
@@ -179,7 +181,7 @@ function ProjectListMenu({ isSticky }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const renderItems = (items) => {
-    return items.map(({ icon, title, description }, key) => (
+    return items.map(({ icon, title, description, link }, key) => (
       <a href='#' key={key}>
         <MenuItem className='flex items-center gap-3 rounded-lg'>
           <div className='flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 '>
@@ -219,13 +221,15 @@ function ProjectListMenu({ isSticky }) {
       >
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
-            <a
-              href='#project'
+            <ListItem
               className={`flex items-center gap-2 py-2 px-4 font-medium ${
                 isSticky ? "text-black" : "text-white"
               }`}
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Project
+              <a href='#project'>Project</a>
+
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -238,7 +242,7 @@ function ProjectListMenu({ isSticky }) {
                   isMobileMenuOpen ? "rotate-180" : ""
                 }`}
               />
-            </a>
+            </ListItem>
           </Typography>
         </MenuHandler>
         <MenuList className='hidden max-w-screen-xl rounded-xl lg:block'>
@@ -266,7 +270,9 @@ function NavList({ isSticky }) {
         as='a'
         href='/our-story'
         variant='small'
-        className={`font-medium ${isSticky ? "text-black" : "text-white"}`}
+        className={`font-medium text-black ${
+          isSticky ? "text-black" : "text-white"
+        }`}
       >
         <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
           Our Story
@@ -276,7 +282,9 @@ function NavList({ isSticky }) {
         as='a'
         href='/contact-us'
         variant='small'
-        className={`font-medium ${isSticky ? "text-black" : "text-white"}`}
+        className={`font-medium text-black ${
+          isSticky ? "text-black" : "text-white"
+        }`}
       >
         <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
           Contact Us
@@ -353,8 +361,12 @@ export function StickyNavbar() {
             showThumbs={false}
             autoPlay={true}
             showArrows={false}
+            animationHandler={"fade"}
+            interval={5000}
+            transition={true}
+            transitionTime={5000}
           >
-            <div className='relative h-full w-full flex items-center justify-center'>
+            <div className='relative h-[500px] lg:h-full w-full flex items-center justify-center'>
               <img
                 src='/disabilitas.jpg'
                 alt='image 1'
@@ -388,7 +400,7 @@ export function StickyNavbar() {
             </div>
           </Carousel>
         </div>
-        <div className='absolute inset-0 flex flex-col justify-center items-start ml-32 mt-10 lg:mt-0 gap-3 '>
+        <div className='absolute inset-0 flex flex-col justify-center items-start px-4 lg:ml-32 pt-12 lg:mt-0 gap-1 '>
           <Typography
             variant='h1'
             className=' text-xl md:text-4xl lg:text-3xl text-white custom-text'
@@ -398,14 +410,14 @@ export function StickyNavbar() {
           <Typography
             variant='lead'
             color='white'
-            className='text-sm lg:text-lg text-white w-[80%] lg:w-[900px] custom-text'
+            className='text-sm lg:text-lg text-white  lg:w-[900px] custom-text my-3'
           >
-            where artistry meets precision in the world of aluminum
+            Where artistry meets precision in the world of aluminum
             craftsmanship. As pioneers in the industry, we embark on a journey
             to redefine spaces and elevate designs through the exceptional
-            versatility of aluminum. At Trimitra, we understand that each
-            project is a unique canvas, waiting to be adorned with the perfect
-            blend of functionality and aesthetic brilliance
+            versatility of aluminum. At Matahari Concept, we understand that
+            each project is a unique canvas, waiting to be adorned with the
+            perfect blend of functionality and aesthetic brilliance
           </Typography>
           <div className='flex gap-4 my-5'>
             <a href='#product'>

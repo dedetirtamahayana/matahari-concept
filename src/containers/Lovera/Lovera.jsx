@@ -109,17 +109,15 @@ const Lovera = () => {
                   <Typography
                     variant='h5'
                     color='blue-gray'
-                    className='mb-2 text-black text-lg text-center md:text-left'
+                    className='mb-2 text-black text-lg text-center md:text-left custom-text'
                   >
                     Unveiling your horizon with LOVERA
                   </Typography>
-                  <h2 className='text-4xl text-center md:text-left md:text-[42px] text-black font-opensans font-light mb-5 '>
+                  <h2 className='text-4xl text-center md:text-left md:text-[42px] text-black font-opensans font-light mb-5 custom-text'>
                     Seamlessly combines{" "}
-                    <em className='font-playfair font-semibold'>durability </em>{" "}
+                    <em className='custom-text font-semibold '>durability </em>{" "}
                     and{" "}
-                    <em className='font-playfair font-semibold'>
-                      flexibility{" "}
-                    </em>{" "}
+                    <em className='custom-text font-semibold'>flexibility </em>{" "}
                     for roofing system
                   </h2>
                   <Typography className='text-black text-center md:text-left'>

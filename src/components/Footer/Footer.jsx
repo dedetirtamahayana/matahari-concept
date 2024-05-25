@@ -26,11 +26,17 @@ const Footer = () => {
                 <Typography className='mb-3'>
                   Jl. Raya Garuda No. 55, Perumahan Rewwin Waru Sidoarjo
                 </Typography>
-                <div className='flex button-group gap-4 my-4'>
+                <div className='grid button-group gap-4 my-4'>
                   <Link href={"https://wa.me/6289685698718"}>
                     <Typography className='flex gap-3 items-center '>
                       <FaWhatsapp className='w-5 h-5' />
                       +62 896 856 987 18
+                    </Typography>
+                  </Link>
+                  <Link href={"https://wa.me/62818350025"}>
+                    <Typography className='flex gap-3 items-center '>
+                      <FaWhatsapp className='w-5 h-5' />
+                      +62 818 350 025
                     </Typography>
                   </Link>
                 </div>
