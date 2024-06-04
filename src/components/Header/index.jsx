@@ -137,7 +137,7 @@ function NavListMenu({ isSticky }) {
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
             <ListItem
-              className={`flex items-center gap-2 py-2 px-4 font-medium text-black ${
+              className={`flex items-center gap-2 py-2 px-4 font-medium text-black custom-text ${
                 isSticky ? "lg:text-black" : "lg:text-white"
               }`}
               selected={isMenuOpen || isMobileMenuOpen}
@@ -221,7 +221,7 @@ function ProjectListMenu({ isSticky }) {
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
             <ListItem
-              className={`flex items-center gap-2 py-2 px-4 font-medium text-black ${
+              className={`flex items-center gap-2 py-2 px-4 font-medium text-black custom-text ${
                 isSticky ? "lg:text-black" : "lg:text-white"
               }`}
               selected={isMenuOpen || isMobileMenuOpen}
@@ -261,7 +261,7 @@ function ProjectListMenu({ isSticky }) {
 
 function NavList({ isSticky }) {
   return (
-    <List className='mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1'>
+    <List className='mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 '>
       <NavListMenu isSticky={isSticky} />
       <ProjectListMenu isSticky={isSticky} />
 
@@ -269,11 +269,11 @@ function NavList({ isSticky }) {
         as='a'
         href='/our-story'
         variant='small'
-        className={`font-medium text-black ${
+        className={`font-medium text-black custom-text ${
           isSticky ? "lg:text-black" : "lg:text-white"
         }`}
       >
-        <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
+        <ListItem className='flex items-center gap-2 py-2 lg:px-4 custom-text'>
           Our Story
         </ListItem>
       </Typography>
@@ -285,7 +285,7 @@ function NavList({ isSticky }) {
           isSticky ? "lg:text-black" : "lg:text-white"
         }`}
       >
-        <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
+        <ListItem className='flex items-center gap-2 py-2 lg:px-4 custom-text'>
           Contact Us
         </ListItem>
       </Typography>
@@ -322,12 +322,26 @@ export function StickyNavbar() {
 
   return (
     <>
-      <div className={`absolute w-full z-50  ${isSticky ? "bg-white" : ""}`}>
-        <div className={` ${isSticky ? "sticky bg-white" : "bg-transparent"}`}>
+      <div
+        className={`absolute w-full z-50 transition-colors duration-500 ${
+          isSticky
+            ? "sticky bg-white bg-opacity-0"
+            : "bg-transparent bg-opacity-100"
+        }`}
+        style={{
+          backgroundColor: isSticky ? "white" : "transparent",
+          transition: "background-color 0.5s ease-out",
+        }}
+      >
+        <div>
           <div className='container px-0'>
             <Navbar className=' top-0 h-auto w-full rounded-none text-white bg-transparent backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-0 lg:py-2 '>
               <div className='flex items-center justify-between text-blue-gray-900 '>
-                <img src='/logo.png' className='w-24 h-auto ' alt='' />
+                <img
+                  src={isSticky ? "/logo.png" : "/logo-white.png"}
+                  className='w-24 h-24'
+                  alt=''
+                />
                 <div className='hidden lg:block'>
                   <NavList isSticky={isSticky} />
                 </div>
@@ -354,7 +368,7 @@ export function StickyNavbar() {
       <div className='relative overflow-hidden'>
         <div className='relative'>
           <Carousel
-            className='overflow-hidden md:h-[500px]'
+            className='overflow-hidden md:h-[600px]'
             showStatus={false}
             infiniteLoop={true}
             showThumbs={false}
@@ -365,9 +379,9 @@ export function StickyNavbar() {
             transition={true}
             transitionTime={5000}
           >
-            <div className='relative h-[500px]  w-full flex items-center justify-center'>
+            <div className='relative h-[600px]  w-full flex items-center justify-center'>
               <img
-                src='/disabilitas.jpg'
+                src='/header-1.jpeg'
                 alt='image 1'
                 className='h-full w-full object-cover bg-right'
               />
@@ -375,9 +389,9 @@ export function StickyNavbar() {
                 <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
               </div>
             </div>
-            <div className='relative h-[500px]  w-full flex items-center justify-center'>
+            <div className='relative h-[600px]  w-full flex items-center justify-center'>
               <img
-                src='/disabilitas.jpg'
+                src='/header-2.jpeg'
                 alt='image 2'
                 className='h-full w-full object-cover bg-right'
               />
@@ -385,14 +399,14 @@ export function StickyNavbar() {
                 <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
               </div>
             </div>
-            <div className='relative h-[500px]  w-full flex items-center justify-center'>
-              <img src='/job.png' alt='image 2' className='bg-cover' />
+            <div className='relative h-[600px]  w-full flex items-center justify-center'>
+              <img src='/header-3.jpeg' alt='image 2' className='bg-cover' />
               <div className='absolute inset-0 grid h-full w-full items-center bg-black/50'>
                 <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
               </div>
             </div>
-            <div className='relative h-[500px] lg:h-full w-full flex items-center justify-center'>
-              <img src='/mikro.jpg' alt='image 2' className='bg-cover' />
+            <div className='relative h-[600px] lg:h-full w-full flex items-center justify-center'>
+              <img src='/header-5.jpeg' alt='image 2' className='bg-cover' />
               <div className='absolute inset-0 grid h-full w-full items-center bg-black/50'>
                 <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
               </div>
@@ -421,7 +435,7 @@ export function StickyNavbar() {
           <div className='flex gap-4 my-5'>
             <a href='#product'>
               <Button
-                className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white'
+                className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white custom-text'
                 variant='text'
                 size='lg'
               >
@@ -430,7 +444,7 @@ export function StickyNavbar() {
             </a>
             <a href='#project'>
               <Button
-                className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white'
+                className='text-white custom-text bg-transparent border hover:bg-white hover:text-gray-800 border-white custom-text'
                 variant='text'
                 size='lg'
                 href='#project'

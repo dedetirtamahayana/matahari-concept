@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
 	font-family: 'Playfair Display';
 	src: url('/Playfair_Display//PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
 
@@ -10,7 +10,7 @@
 @font-face {
 	font-family: 'Open sans';
 	src: url('/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
-}
+} */
 @font-face {
 	font-family: 'Muli';
 	src: url('/muli/Muli.ttf') format('truetype');
@@ -27,4 +27,7 @@
   }
   html {
 	scroll-behavior: smooth;
+  }
+  body {
+	font-family: 'Mulish', sans-serif;
   }

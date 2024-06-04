@@ -20,7 +20,6 @@ module.exports = withMT({
         playfair: ["Playfair Display", "serif"],
         opensans: ["Open sans", "sans-serif"],
       },
-
       colors: {
         primaryBtn: "#000768",
         secondaryBtn: "#1572A1",
@@ -39,6 +38,18 @@ module.exports = withMT({
           md: "100%",
           lg: "1232px", // Sesuaikan dengan lebar yang diinginkan
           xl: "1232px",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-mulish)"],
+      },
+      animation: {
+        fade: "fadeOut 5s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
         },
       },
     },

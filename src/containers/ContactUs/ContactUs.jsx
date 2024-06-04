@@ -57,56 +57,19 @@ const ContactUs = () => {
                 residential market segment.
               </Typography>
               <div className='text-black'>
-                <Accordion
-                  open={open === 1}
-                  icon={<Icon id={1} open={open} />}
-                  className='bg-gray-200 pl-6 mt-2'
-                >
-                  <AccordionHeader
-                    onClick={() => handleOpen(1)}
-                    className='text-sm'
-                  >
-                    AGENTS JABODETABEK
-                  </AccordionHeader>
-                  <AccordionBody className='text-black'>
-                    <div className='mb-3'>
-                      <Typography className='font-bold'>
-                        Jakarta Barat
-                      </Typography>
-                      <Typography>
-                        PT. Chanaka Mitra Abadi (Bpk. Mino Ong)
-                      </Typography>
-                      <Typography>Jl. Raya Puri Kembangan No. 34 </Typography>
-                      <Typography>Telp: 021-5805622 / 92022936</Typography>
-                      <Typography>HP: 0816-1941-689</Typography>
-                    </div>
-                  </AccordionBody>
-                </Accordion>
-                <Accordion
-                  open={open === 2}
-                  icon={<Icon id={2} open={open} />}
-                  className='bg-gray-200 pl-6 mt-2'
-                >
-                  <AccordionHeader
-                    onClick={() => handleOpen(2)}
-                    className='text-sm'
-                  >
-                    AGENTS NON JABODETABEK
-                  </AccordionHeader>
-                  <AccordionBody className='text-black'>
-                    <div className='mb-3'>
-                      <Typography className='font-bold'>
-                        Jakarta Barat
-                      </Typography>
-                      <Typography>
-                        PT. Chanaka Mitra Abadi (Bpk. Mino Ong)
-                      </Typography>
-                      <Typography>Jl. Raya Puri Kembangan No. 34 </Typography>
-                      <Typography>Telp: 021-5805622 / 92022936</Typography>
-                      <Typography>HP: 0816-1941-689</Typography>
-                    </div>
-                  </AccordionBody>
-                </Accordion>
+                <div className='bg-gray-200 p-5'>
+                  <Typography className='font-bold'>
+                    Matahari Concept (Bpk. Sugeng Wijaya)
+                  </Typography>
+                  <Typography>
+                    Jl. Imam Bonjol Pesona Wisata IB/6, Denpasar
+                  </Typography>
+                  <Typography>
+                    Jl. Raya Garuda No. 55, Perumahan Rewwin Waru Sidoarjo
+                  </Typography>
+                  <Typography>HP: 0818-350-025/ 0812-3000-025</Typography>
+                  <Typography>Email: wiajayaconcept@yahoo.com</Typography>
+                </div>
               </div>
             </div>
 
@@ -120,7 +83,7 @@ const ContactUs = () => {
                 each project. This may involve architectural design, engineering
                 services, and value engineering to optimize project outcomes.
               </Typography>
-              <Link href='mailto: marketing@trimitrakm.com' passHref>
+              <Link href={"https://wa.me/62818350025"}>
                 <Button variant='contained' className='bg-blue-400'>
                   Contact Us
                 </Button>

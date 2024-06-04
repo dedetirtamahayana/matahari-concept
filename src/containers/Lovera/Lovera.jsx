@@ -18,6 +18,7 @@ import {
 
 import Footer from "@/components/Footer/Footer";
 import { MenuInternal } from "@/components/Menu/Menu";
+import { StickyNavbar } from "@/components/Header/index";
 
 const Lovera = () => {
   const images = [
@@ -88,7 +89,7 @@ const Lovera = () => {
 
   return (
     <>
-      <MenuInternal />
+      <StickyNavbar />
       <div className='section-1 mx-auto'>
         <div className='container py-8 lg:py-24 px-0 w-[90%] md:w-[100%] mx-auto '>
           <div className='grid grid-cols-1 lg:grid-cols-2'>

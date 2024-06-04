@@ -1,11 +1,15 @@
-import "@/styles/globals.css";
-import { Provider } from "react-redux";
-import store from "@/redux/store";
+import { Mulish } from "next/font/google";
 
-export default function App({ Component, pageProps }) {
+import "../styles/globals.css";
+const mulish = Mulish({
+  subsets: ["latin"],
+  variable: "--font-mulish",
+});
+
+export default function MyApp({ Component, pageProps }) {
   return (
-    <Provider store={store}>
+    <main className={`${mulish.variable} font-sans`}>
       <Component {...pageProps} />
-    </Provider>
+    </main>
   );
 }
