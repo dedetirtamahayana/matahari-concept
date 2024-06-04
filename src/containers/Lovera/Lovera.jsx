@@ -89,8 +89,26 @@ const Lovera = () => {
 
   return (
     <>
-      <StickyNavbar />
+      <MenuInternal />
       <div className='section-1 mx-auto'>
+        <div className='w-full bg-titlecolor'>
+          <div className='pt-[104px] text-center grid justify-center items-center'>
+            <div className='p-8'>
+              <div className='p-8'>
+                <img
+                  src='/lovera-title.png'
+                  className='w-80 h-auto mb-5'
+                  alt=''
+                />
+              </div>
+              <div className='flex justify-center items-center'>
+                <Typography className='text-2xl font-semibold'>
+                  ADJUSTABLE ROOFING SYSTEM
+                </Typography>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className='container py-8 lg:py-24 px-0 w-[90%] md:w-[100%] mx-auto '>
           <div className='grid grid-cols-1 lg:grid-cols-2'>
             <div className='image flex justify-center items-center'>

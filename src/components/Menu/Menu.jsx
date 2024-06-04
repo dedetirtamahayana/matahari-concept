@@ -23,7 +23,6 @@ import {
   NewspaperIcon,
   PhoneIcon,
   RectangleGroupIcon,
-  SquaresPlusIcon,
   SunIcon,
   TagIcon,
   UserGroupIcon,
@@ -137,13 +136,13 @@ function NavListMenu({ isSticky }) {
       >
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
-            <a
-              href='#product'
-              className={`flex items-center gap-2 py-2 px-4 font-medium ${
-                isSticky ? "text-black" : "text-white"
-              }`}
+            <ListItem
+              className={`flex items-center gap-2 py-2 px-4 font-medium text-black custom-text `}
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Product
+              <a href='#product'>Product</a>
+
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -156,7 +155,7 @@ function NavListMenu({ isSticky }) {
                   isMobileMenuOpen ? "rotate-180" : ""
                 }`}
               />
-            </a>
+            </ListItem>
           </Typography>
         </MenuHandler>
         <MenuList className='hidden max-w-screen-xl rounded-xl lg:block'>
@@ -179,7 +178,7 @@ function ProjectListMenu({ isSticky }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const renderItems = (items) => {
-    return items.map(({ icon, title, description }, key) => (
+    return items.map(({ icon, title, description, link }, key) => (
       <a href='#' key={key}>
         <MenuItem className='flex items-center gap-3 rounded-lg'>
           <div className='flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 '>
@@ -219,13 +218,13 @@ function ProjectListMenu({ isSticky }) {
       >
         <MenuHandler>
           <Typography as='div' variant='small' className='font-medium'>
-            <a
-              href='#project'
-              className={`flex items-center gap-2 py-2 px-4 font-medium ${
-                isSticky ? "text-black" : "text-white"
-              }`}
+            <ListItem
+              className={`flex items-center gap-2 py-2 px-4 font-medium text-black custom-text `}
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Project
+              <a href='#project'>Project</a>
+
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -238,7 +237,7 @@ function ProjectListMenu({ isSticky }) {
                   isMobileMenuOpen ? "rotate-180" : ""
                 }`}
               />
-            </a>
+            </ListItem>
           </Typography>
         </MenuHandler>
         <MenuList className='hidden max-w-screen-xl rounded-xl lg:block'>
@@ -258,7 +257,7 @@ function ProjectListMenu({ isSticky }) {
 
 function NavList({ isSticky }) {
   return (
-    <List className='mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1'>
+    <List className='mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 '>
       <NavListMenu isSticky={isSticky} />
       <ProjectListMenu isSticky={isSticky} />
 
@@ -266,9 +265,9 @@ function NavList({ isSticky }) {
         as='a'
         href='/our-story'
         variant='small'
-        className={`font-medium ${isSticky ? "text-black" : "text-white"}`}
+        className={`font-medium text-black custom-text `}
       >
-        <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
+        <ListItem className='flex items-center gap-2 py-2 lg:px-4 custom-text'>
           Our Story
         </ListItem>
       </Typography>
@@ -276,9 +275,9 @@ function NavList({ isSticky }) {
         as='a'
         href='/contact-us'
         variant='small'
-        className={`font-medium ${isSticky ? "text-black" : "text-white"}`}
+        className={`font-medium text-black `}
       >
-        <ListItem className='flex items-center gap-2 py-2 lg:px-4'>
+        <ListItem className='flex items-center gap-2 py-2 lg:px-4 custom-text'>
           Contact Us
         </ListItem>
       </Typography>
@@ -315,113 +314,42 @@ export function MenuInternal() {
 
   return (
     <>
-      <div className={`absolute w-full z-50 ${isSticky ? "bg-white" : ""}`}>
-        <Navbar
-          className={`navbar top-0 h-auto max-w-full rounded-none bg-white text-white backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-8 lg:py-2 ${
-            isSticky ? "sticky" : ""
-          } ${isSticky ? "bg-white" : "bg-transparent"}`}
-        >
-          <div className='flex items-center justify-between text-blue-gray-900 lg:mr-28'>
-            <img src='/logo.png' className='w-24 h-auto lg:ml-28' alt='' />
-            <div className='hidden lg:block'>
-              <NavList isSticky={isSticky} />
-            </div>
-            <IconButton
-              variant='text'
-              color={isSticky ? "black" : "white"}
-              className='lg:hidden'
-              onClick={() => setOpenNav(!openNav)}
-            >
-              {openNav ? (
-                <XMarkIcon className='h-6 w-6' strokeWidth={2} />
-              ) : (
-                <Bars3Icon className='h-6 w-6' strokeWidth={2} />
-              )}
-            </IconButton>
-          </div>
-          <Collapse open={openNav} className='bg-white'>
-            <NavList isSticky={isSticky} />
-          </Collapse>
-        </Navbar>
-      </div>
-      <div className='relative overflow-hidden'>
-        <div className='relative'>
-          <Carousel
-            className='overflow-hidden h-100% md:h-[700px]'
-            showStatus={false}
-            infiniteLoop={true}
-            showThumbs={false}
-            autoPlay={true}
-            showArrows={false}
-          >
-            <div className='relative h-full w-full flex items-center justify-center'>
-              <img
-                src='/disabilitas.jpg'
-                alt='image 1'
-                className='h-full w-full object-cover bg-right'
-              />
-              <div className='absolute inset-0 grid h-full w-full items-center bg-black/50'>
-                <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
+      <div
+        className={`absolute w-full z-50 transition-colors duration-500 ${
+          isSticky ? "sticky bg-blue-gray-100 bg-opacity-0" : "bg-white"
+        }`}
+        style={{
+          backgroundColor: isSticky ? "white" : "#cfd8dc",
+          transition: "background-color 0.5s ease-out",
+        }}
+      >
+        <div>
+          <div className='container px-0'>
+            <Navbar className=' top-0 h-auto w-full rounded-none text-white bg-transparent backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-0 lg:py-2 '>
+              <div className='flex items-center justify-between text-blue-gray-900 '>
+                <Link href={"/"}>
+                  <img src='/logo.png' className='w-24 h-24' alt='' href='/' />
+                </Link>
+                <div className='hidden lg:block'>
+                  <NavList isSticky={isSticky} />
+                </div>
+                <IconButton
+                  variant='text'
+                  color={isSticky ? "black" : "white"}
+                  className='lg:hidden'
+                  onClick={() => setOpenNav(!openNav)}
+                >
+                  {openNav ? (
+                    <XMarkIcon className='h-6 w-6' strokeWidth={2} />
+                  ) : (
+                    <Bars3Icon className='h-6 w-6' strokeWidth={2} />
+                  )}
+                </IconButton>
               </div>
-            </div>
-            <div className='relative h-full w-full flex items-center justify-center'>
-              <img
-                src='/disabilitas.jpg'
-                alt='image 2'
-                className='h-full w-full object-cover bg-right'
-              />
-              <div className='absolute inset-0 grid h-full w-full items-center bg-black/50'>
-                <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
-              </div>
-            </div>
-            <div className='relative h-full w-full  flex items-center'>
-              <img src='/job.png' alt='image 2' className='bg-cover' />
-              <div className='absolute inset-0 grid h-full w-full items-center bg-black/50'>
-                <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
-              </div>
-            </div>
-            <div className='relative h-full w-full  flex items-center'>
-              <img src='/mikro.jpg' alt='image 2' className='bg-cover' />
-              <div className='absolute inset-0 grid h-full w-full items-center bg-black/50'>
-                <div className='w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32'></div>
-              </div>
-            </div>
-          </Carousel>
-        </div>
-        <div className='absolute inset-0 flex flex-col justify-center items-start ml-32 mt-10 lg:mt-0 gap-3 '>
-          <Typography
-            variant='h1'
-            className=' text-xl md:text-4xl lg:text-3xl text-white custom-text'
-          >
-            Welcome To Matahari Concept
-          </Typography>
-          <Typography
-            variant='lead'
-            color='white'
-            className='text-sm lg:text-lg text-white w-[80%] lg:w-[900px] custom-text'
-          >
-            where artistry meets precision in the world of aluminum
-            craftsmanship. As pioneers in the industry, we embark on a journey
-            to redefine spaces and elevate designs through the exceptional
-            versatility of aluminum. At Trimitra, we understand that each
-            project is a unique canvas, waiting to be adorned with the perfect
-            blend of functionality and aesthetic brilliance
-          </Typography>
-          <div className='flex gap-4 my-5'>
-            <Button
-              className='text-white custom-text hover:bg-white hover:text-gray-800 border-white z-10 '
-              variant='outlined'
-              size='lg'
-            >
-              Product
-            </Button>
-            <Button
-              className='text-white custom-text hover:bg-white hover:text-gray-800 border-white z-10 '
-              variant='outlined'
-              size='lg'
-            >
-              Project
-            </Button>
+              <Collapse open={openNav} className='bg-white'>
+                <NavList isSticky={isSticky} />
+              </Collapse>
+            </Navbar>
           </div>
         </div>
       </div>

@@ -337,11 +337,14 @@ export function StickyNavbar() {
           <div className='container px-0'>
             <Navbar className=' top-0 h-auto w-full rounded-none text-white bg-transparent backdrop-blur-none border-none backdrop-saturate-100 bg-opacity-100 shadow-none p-3 lg:px-0 lg:py-2 '>
               <div className='flex items-center justify-between text-blue-gray-900 '>
-                <img
-                  src={isSticky ? "/logo.png" : "/logo-white.png"}
-                  className='w-24 h-24'
-                  alt=''
-                />
+                <Link href={"/"}>
+                  <img
+                    src={isSticky ? "/logo.png" : "/logo-white.png"}
+                    className='w-24 h-24'
+                    alt=''
+                    href='/'
+                  />
+                </Link>
                 <div className='hidden lg:block'>
                   <NavList isSticky={isSticky} />
                 </div>
